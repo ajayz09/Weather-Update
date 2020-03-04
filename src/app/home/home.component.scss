@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Assistant:400,700,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+.home-main {
+    margin-top: 150px;
+    text-align: center;
+
+}
+
+.home-main h1{
+  color: white;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  -webkit-animation: 3s ease 0s normal forwards 1 fadein;
+  animation: 2s ease 0s normal forwards 1 fadein;
+}
+
+@keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+
+p {
+  margin: 50px auto;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: 'Assistant', sans-serif;
+  font-size: 28px;
+  color: white;
+  animation: animated-text 2s steps(30,end) 4s 1 normal both;
+}
+
+
+/* text animation */
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 472px;}
+}

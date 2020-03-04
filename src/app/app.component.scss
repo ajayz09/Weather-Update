@@ -1,0 +1,72 @@
+.bg-img {
+ min-height: 100vh;
+ width: 100%;
+ margin: 0 0;
+ position: fixed;
+ background-color: black;
+}
+
+h1 {
+  color: white;
+}
+
+* {
+   margin: 0;
+}
+
+.footer-row {
+    position: fixed;;  /* always stay where I put you on the screen */
+    bottom: 0;  /* I'm putting you at the bottom with no space in between */
+    width: 100%;  /* fill the width of your containing element (body) */
+    -webkit-animation: 3s ease 0s normal forwards 1 fadein;
+    animation: 3s ease 0s normal forwards 1 fadein;
+
+}
+
+@keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes fadein{
+    0% { opacity:0; }
+    66% { opacity:0; }
+    100% { opacity:1; }
+}
+
+
+.column-1 {
+  float: left;
+  width: 25%;
+  background-color: #4989F3;
+  height: 10px;
+}
+
+.column-2 {
+  float: left;
+  width: 25%;
+  background-color: #DF5045;
+  height: 10px;
+}
+
+.column-3 {
+  float: left;
+  width: 25%;
+  background-color: #F4B80C;
+  height: 10px;
+}
+
+.column-4 {
+  float: left;
+  width: 25%;
+  background-color: #179F5D;
+  height: 10px;
+}
+
+/* Clear floats after the columns */
+.footer-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
