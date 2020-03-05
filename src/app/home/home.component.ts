@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { pulse,rubberBand,fadeIn } from 'ng-animate';
+import { Router } from '@angular/router';
 // import { MapContentComponent } from './map-content/map-content.component';
 
 @Component({
@@ -16,14 +17,15 @@ import { pulse,rubberBand,fadeIn } from 'ng-animate';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(){
   }
 
   fadeIn: any;
 
-  // createMapComponent() {
-  //   console.log("Clicked");
-  // }
+  onGoToPage2() {
+    console.log("clicked");
+    this.router.navigate(['/weather']);
+  }
 }
