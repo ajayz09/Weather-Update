@@ -6,12 +6,15 @@ import { MapContentComponent } from './map-content/map-content.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: AppComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'weather', component: MapContentComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

@@ -18,4 +18,7 @@ export class AppComponent{
 
   title = 'WeatherUpdate';
   rubberBand: any;
+  triggerAnimation(outlet) {
+    return outlet.activatedRouteData.animation || null;
+  }
 }

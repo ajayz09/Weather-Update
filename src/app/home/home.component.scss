@@ -3,10 +3,19 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
 
+
+.home-bg {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0 0;
+  position: fixed;
+  background-color: black;
+}
+
+
 .home-main {
     margin-top: 150px;
     text-align: center;
-
 }
 
 .home-main h1{
@@ -24,59 +33,69 @@
   position: absolute;
   top: 0;
   left: 50%;
-  width: 30px;
-  height: 50px;
+  // width: 30px;
+  // height: 50px;
   margin-left: -15px;
-  border: 2px solid #fff;
-  border-radius: 50px;
-  box-sizing: border-box;
+  // border: 2px solid #fff;
+  // border-radius: 50px;
+  // box-sizing: border-box;
 }
 #section10 a span::before {
   position: absolute;
   top: 10px;
   left: 50%;
   content: '';
-  width: 6px;
-  height: 6px;
-  margin-left: -3px;
+  // width: 6px;
+  // height: 6px;
+  // margin-left: -3px;
   background-color: #fff;
-  border-radius: 100%;
-  -webkit-animation: sdb10 2s infinite;
-  animation: sdb10 2s infinite;
-  box-sizing: border-box;
+  // border-radius: 100%;
+  // -webkit-animation: sdb10 2s infinite;
+  // animation: sdb10 2s infinite;
+  // box-sizing: border-box;
 }
 
-@-webkit-keyframes sdb10 {
-  0% {
-    -webkit-transform: translate(0, 0);
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-  }
-  80% {
-    -webkit-transform: translate(0, 20px);
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+.column-1 {
+  float: left;
+  width: 25%;
+  background-color: #4989F3;
+  height: 10px;
 }
-@keyframes sdb10 {
-  0% {
-    transform: translate(0, 0);
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-  }
-  80% {
-    transform: translate(0, 20px);
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+
+.column-2 {
+  float: left;
+  width: 25%;
+  background-color: #DF5045;
+  height: 10px;
+}
+
+.column-3 {
+  float: left;
+  width: 25%;
+  background-color: #F4B80C;
+  height: 10px;
+}
+
+.column-4 {
+  float: left;
+  width: 25%;
+  background-color: #179F5D;
+  height: 10px;
+}
+
+.footer-row {
+    position: fixed;;  /* always stay where I put you on the screen */
+    bottom: 0;  /* I'm putting you at the bottom with no space in between */
+    width: 100%;  /* fill the width of your containing element (body) */
+    -webkit-animation: 3s ease 0s normal forwards 1 fadein;
+    animation: 3s ease 0s normal forwards 1 fadein;
+}
+
+/* Clear floats after the columns */
+.footer-row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .demo {
@@ -141,20 +160,3 @@
   from { width: 0; opacity: 0.0;}
   to { width: 472px; opacity: 1.0; }
 }
-
-// p {
-//   margin: 50px auto;
-//   white-space: normal;
-//   overflow: auto;
-//   font-family: 'Assistant', sans-serif;
-//   font-size: 28px;
-//   color: white;
-//   animation: animated-text 2s steps(30,end) 4s 1 normal both;
-// }
-//
-//
-// /* text animation */
-// @keyframes animated-text{
-//   from{width: 0;}
-//   to{width: 472px;}
-// }
