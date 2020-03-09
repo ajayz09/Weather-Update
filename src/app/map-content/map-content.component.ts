@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HomeComponent } from '../home/home.component';
+
 
 @Component({
   selector: 'app-map-content',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapContentComponent implements OnInit {
 
-  constructor() { }
-
+  // @Input() coordinates: any[];
+  @Input() Abc: string;
+  constructor() {}
   ngOnInit(): void {
+    console.log(' got',this.Abc);
   }
 
+  show : boolean = false
 }

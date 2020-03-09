@@ -3,9 +3,10 @@ import { trigger, transition, useAnimation } from '@angular/animations';
 import { pulse,rubberBand,fadeIn } from 'ng-animate';
 import { Router, NavigationEnd } from '@angular/router';
 // import { MapContentComponent } from './map-content/map-content.component';
-
+// [coordinates] = "coordinates"
 @Component({
   selector: 'app-home',
+  template : '<app-map-content Abc = "test"> </app-map-content>',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   animations: [
@@ -20,15 +21,15 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+
+  }
 
   ngOnInit(){
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;
       }
-      console.log("Scrolling to top");
-      window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
     });
   }
 
@@ -37,10 +38,18 @@ export class HomeComponent implements OnInit {
   triggerAnimation(outlet) {
     return outlet.activatedRouteData.animation || null;
   }
+  Abc = '123';
+  latitude = {};
+  longitude = {};
+  coordinates = {};
+  getLocation() {
+    navigator.geolocation.getCurrentPosition(position => {
+      // console.log(position.coords);
+      // this.coordinates = position.coords;
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
 
-  onGoToPage2() {
-    console.log("clicked");
-
+    });
     this.router.navigate(['/weather']);
   }
 }
