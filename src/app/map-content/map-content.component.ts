@@ -38,12 +38,10 @@ export class MapContentComponent implements OnInit {
       alert(this.lng);
       this.weatherForecast
         .getWeather()
-        .subscribe(data => this.weatherData = data);
-      // this.weather = this.weatherForecast.getWeather();
-      // console.log('Weather Got from API call',this.weatherForecast.getWeather().name);
+        .subscribe(data => {
+          this.weatherData = data;
+          console.log('Weather Got from API call',this.weatherData.name);
     });
-  }
-
-
-
+  })
+}
 }
