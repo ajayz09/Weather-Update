@@ -39,15 +39,8 @@ export class MapContentComponent implements OnInit {
       this.weatherForecast
         .getWeather()
         .subscribe(data => {
-<<<<<<< HEAD
           this.weatherData = data;
           console.log('Weather Got from API call',this.weatherData.name);
-=======
-         this.weatherData = data;
-         console.log('Weather Got from API call',this.weatherData.name);
-
-       });
->>>>>>> 0db9571b3426a4b426320eafb2e0ddef28e34b1e
     });
   })
 }
