@@ -23,8 +23,7 @@ export class MapContentComponent implements OnInit {
   })();
 
   ngOnInit(): void {
-    // this.weather = this.weatherForecast.getWeather();
-    // console.log('Weather Got from API call',this.weather);
+
   }
 
   lat: number;
