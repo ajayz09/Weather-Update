@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { pulse,rubberBand,fadeIn } from 'ng-animate';
 import { Router, NavigationEnd } from '@angular/router';
-// import { MapContentComponent } from './map-content/map-content.component';
-// [coordinates] = "coordinates"
+
 @Component({
   selector: 'app-home',
-  template : '<app-map-content Abc = "test"> </app-map-content>',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   animations: [
@@ -21,9 +19,10 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(private router: Router) { }
 
-  }
+  fadeIn: any;
+  rubberBand: any;
 
   ngOnInit(){
     this.router.events.subscribe((evt) => {
@@ -33,23 +32,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  fadeIn: any;
-  rubberBand: any;
   triggerAnimation(outlet) {
     return outlet.activatedRouteData.animation || null;
   }
-  Abc = '123';
-  latitude = {};
-  longitude = {};
-  coordinates = {};
-  getLocation() {
-    navigator.geolocation.getCurrentPosition(position => {
-      // console.log(position.coords);
-      // this.coordinates = position.coords;
-      this.latitude = position.coords.latitude;
-      this.longitude = position.coords.longitude;
 
-    });
+  seeResults() {
     this.router.navigate(['/weather']);
   }
 }

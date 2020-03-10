@@ -8,4 +8,16 @@
  margin: 0 0;
  position: fixed;
  background-color: black;
+ overflow-y: scroll;
+}
+
+agm-map {
+  height: 300px;
+  // border-radius: 10px;
+}
+
+
+.googlemaps {
+  // padding-left: 10px;
+  // padding-right: 10px;
 }

@@ -1,20 +1,50 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
+import { } from 'googlemaps';
+import { WeatherForecastService } from '../weather-forecast.service';
 
-
+// AIzaSyAJ2YMMXw8e1u1_fiRZS0 E1KKJQRklVWUc
 @Component({
   selector: 'app-map-content',
   templateUrl: './map-content.component.html',
   styleUrls: ['./map-content.component.scss']
 })
 export class MapContentComponent implements OnInit {
+  public weatherData: any;
+  constructor(
+    private weatherForecast: WeatherForecastService
+  ) { }
 
-  // @Input() coordinates: any[];
-  @Input() Abc: string;
-  constructor() {}
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
+
+  func: void = (() => {
+    this.getLocation();
+  })();
+
   ngOnInit(): void {
-    console.log(' got',this.Abc);
+    // this.weather = this.weatherForecast.getWeather();
+    // console.log('Weather Got from API call',this.weather);
   }
 
+  lat: number;
+  lng: number;
   show : boolean = false
+
+  getLocation() {
+    navigator.geolocation.getCurrentPosition(position => {
+      this.lat = position.coords.latitude;
+      this.lng = position.coords.longitude;
+      alert(this.lat);
+      alert(this.lng);
+      this.weatherForecast
+        .getWeather()
+        .subscribe(data => this.wearherData = data);
+      // this.weather = this.weatherForecast.getWeather();
+      // console.log('Weather Got from API call',this.weatherForecast.getWeather().name);
+    });
+  }
+
+
+
 }
