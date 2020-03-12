@@ -1,11 +1,35 @@
 <div class="bg-img">
-  <p>{{ this.weatherData.name }}</p>
-  <!-- <div #gmap style="width:100%;height:400px"></div> -->
-  <div class="googlemaps">
-    <agm-map [latitude]="lat" [longitude]="lng">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-    </agm-map>
+
+  <h1 *ngIf="gotData" class="title-weather">{{ weatherData.name }} </h1>
+
+  <table style="margin-left:auto;margin-right:auto;">
+    <tr>
+        <td colspan="2" id="title">
+        </td>
+    </tr>
+    <tr>
+        <td id="firstcolumn">
+          <img src= {{iconURL}} alt="" height="80px" width="80px">
+        </td>
+        <td id="secondcolumn">
+            <p class="temp">{{curTemp}}&#176;<p>
+        </td>
+    </tr>
+  </table>
+
+  <div *ngIf="gotForecast" class="future">
+      <div class="day" *ngFor="let days of forecastData.daily.data|slice:1:6">
+          <h3>{{days.time}}</h3>
+          
+      </div>
+
   </div>
 
   <p *ngIf="show">Show this when boolean is true...</p>
+
+  <div class="googlemaps">
+    <agm-map [zoom]="14" [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+  </div>
 </div>

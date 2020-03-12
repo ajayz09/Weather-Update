@@ -1,4 +1,19 @@
-.bg-img p {
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+
+.bg-img h1 {
+  color: white;
+  padding-top: 30px;
+}
+
+.bg-img p{
+  color: white;
+  text-align: center;
+}
+
+.forecast {
   color: white;
 }
 
@@ -12,12 +27,59 @@
 }
 
 agm-map {
-  height: 300px;
-  // border-radius: 10px;
+  height: 200px;
 }
 
+.title-weather{
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 38px;
+}
 
 .googlemaps {
-  // padding-left: 10px;
-  // padding-right: 10px;
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:200px;
+   padding: 5px 5px;
 }
+
+.temp{
+  font-size: 60px;
+}
+
+
+.future
+{
+  font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.future .day
+{
+    flex-grow: 1;
+    text-align: center;
+    cursor: pointer;
+}
+
+ .future .day:hover
+    {
+        color: #fff;
+        background-color: #F68D2E;
+    }
+
+    .future .day h3
+    {
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+
+  .future .day p
+    {
+        font-size: 12px;
+    }
