@@ -2,7 +2,7 @@
 
   <h1 *ngIf="gotData" class="title-weather">{{ weatherData.name }} </h1>
 
-  <table style="margin-left:auto;margin-right:auto;">
+  <table class="current-weather" style="margin-left:auto;margin-right:auto;">
     <tr>
         <td colspan="2" id="title">
         </td>
@@ -20,16 +20,22 @@
   <div *ngIf="gotForecast" class="future">
       <div class="day" *ngFor="let days of forecastData.daily.data|slice:1:6">
           <h3>{{days.time}}</h3>
-          
+          <i><span class="wi wi-night-sleet"></span></i>
+          <p class="high-temp">23</p>
+          <p class="low-temp">21</p>
+          <!-- <i class="wi wi-night-sleet"></i> -->
       </div>
 
   </div>
 
   <p *ngIf="show">Show this when boolean is true...</p>
+  <div class="rest">
+
 
   <div class="googlemaps">
     <agm-map [zoom]="14" [latitude]="lat" [longitude]="lng">
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
     </agm-map>
+  </div>
   </div>
 </div>
