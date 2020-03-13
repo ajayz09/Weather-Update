@@ -1,4 +1,12 @@
-<div class="bg-img">
+<div class="google-loader" *ngIf="!gotData">
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+
+
+<div class="bg-img" *ngIf="gotData">
 
   <h1 *ngIf="gotData" class="title-weather">{{ weatherData.name }} </h1>
 
@@ -20,20 +28,18 @@
   <div *ngIf="gotForecast" class="future">
       <div class="day" *ngFor="let days of forecastData.daily.data|slice:1:6">
           <h3>{{days.time}}</h3>
-          <i><span class="wi wi-night-sleet"></span></i>
-          <p class="high-temp">23</p>
-          <p class="low-temp">21</p>
-          <!-- <i class="wi wi-night-sleet"></i> -->
+          <i><span [ngClass]="days.icon"></span></i>
+          <p class="high-temp">{{days.temperatureHigh}}&#176;</p>
+          <p class="low-temp">{{days.temperatureLow}}&#176;</p>
       </div>
-
   </div>
 
   <p *ngIf="show">Show this when boolean is true...</p>
+
+
   <div class="rest">
-
-
   <div class="googlemaps">
-    <agm-map [zoom]="14" [latitude]="lat" [longitude]="lng">
+    <agm-map  [latitude]="lat" [longitude]="lng">
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
     </agm-map>
   </div>

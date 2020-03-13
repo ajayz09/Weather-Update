@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap');
 
 .bg-img h1 {
   background-color: black;
@@ -25,16 +24,16 @@
 }
 
 .bg-img {
- min-height: 100vh;
+ height: 100vh;
  width: 100%;
  margin: 0 0;
  position: fixed;
- background-color: #ADD8E6;
+ background-color: black;
  overflow-y: scroll;
 }
 
 agm-map {
-  height: 200px;
+  height: 100%;
 }
 
 .title-weather{
@@ -48,10 +47,11 @@ agm-map {
 
 .googlemaps {
    position:absolute;
-   bottom:0;
+   // bottom:0;
    width:100%;
-   height:200px;
-   padding: 5px 5px;
+   height: 50vh;
+   // padding: 5px 5px;
+   padding-top: 5px;
 }
 
 .temp{
@@ -63,7 +63,9 @@ agm-map {
 .future
 {
   padding-top: 10px;
+  padding-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
     background-color: white;
     display: flex;
     flex-flow: row nowrap;
@@ -97,3 +99,54 @@ agm-map {
     {
         font-size: 28px;
     }
+
+
+
+// Loading animations
+
+$blue: #4285F4;
+$red:  #DB4437;
+$yellow: #F4B400;
+$green: #0F9D58;
+$colors-list: $blue $red $yellow $green;
+
+.google-loader {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 50%;
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+	display: block;
+	span {
+    // align-items: center;
+		display: inline-block;
+		margin-top: 10px;
+		height: 20px;
+		width: 20px;
+		border-radius: 50%;
+		&:not(:first-child) { margin-left: 10px; }
+	}
+	@each $current-color in $colors-list {
+		$i: index($colors-list, $current-color);
+		$t: $i * -0.25;
+		span:nth-child(#{$i}) {
+			background: $current-color;
+			animation: move 1s ease-in-out (#{$t}s) infinite alternate;
+		}
+	}
+}
+
+@keyframes move {
+	from { transform: translateY(-10px); }
+	to { transform: translateY(5px); }
+}
+
+// body {
+// 	height: 100%;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	flex-direction: column;
+// }

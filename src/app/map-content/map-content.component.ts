@@ -12,6 +12,7 @@ import { WeatherForecastService } from '../weather-forecast.service';
 export class MapContentComponent implements OnInit {
   public weatherData: any;
   public forecastData: any;
+
   constructor(
     private weatherForecast: WeatherForecastService
   ) { }
@@ -20,8 +21,13 @@ export class MapContentComponent implements OnInit {
   map: google.maps.Map;
 
   func: void = (() => {
-    console.log("inside")
-    this.getLocation();
+    (async () => {
+        // Do something before delay
+        await this.delay(1000);
+        this.getLocation();
+        console.log('after delay')
+    })();
+
   })();
 
   ngOnInit(): void {}
@@ -29,11 +35,19 @@ export class MapContentComponent implements OnInit {
   lat: number;
   lng: number;
   curTemp: number;
+  highTemp: number;
+  lowTemp: number;
   iconURL: string;
   show: boolean = false;
   gotData : boolean = false;
   gotForecast : boolean = false;
+  link: boolean = false;
   forecastDetails = [];
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+  
 
   getTemp(passedTemp){
     passedTemp = parseInt(passedTemp)
@@ -45,12 +59,30 @@ export class MapContentComponent implements OnInit {
     return passedIcon;
   }
 
+  getFutureIcon(iconText){
+    if(iconText === 'clear-day'){
+      return 'wi wi-day-sunny'
+    }
+    else if(iconText === 'rain'){
+      return 'wi wi-rain'
+    }
+    else if (iconText === 'partly-cloudy-day'){
+      return 'wi wi-day-sunny-overcast'
+    }
+    else{
+      return iconText
+    }
+  }
+
   formatForecastArray(passedForecast){
     for (let i = 0; i < 8; i++){
       var a = new Date(passedForecast.daily.data[i].time*1000);
       var days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
       passedForecast.daily.data[i].time = days[a.getDay()]
-      console.log(passedForecast.daily.data[i].time);
+      passedForecast.daily.data[i].icon = this.getFutureIcon(passedForecast.daily.data[i].icon)
+      passedForecast.daily.data[i].temperatureHigh = this.getTemp(passedForecast.daily.data[i].temperatureHigh)
+      passedForecast.daily.data[i].temperatureLow = this.getTemp(passedForecast.daily.data[i].temperatureLow)
+      console.log(passedForecast);
     }
     return passedForecast;
   }
