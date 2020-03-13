@@ -7,6 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## API Used
 
 [OpenWeather API](https://openweathermap.org/api)
+
 [Dark Sky API](https://darksky.net/dev)
 
 ## Development server
