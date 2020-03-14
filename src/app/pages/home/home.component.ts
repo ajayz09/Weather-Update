@@ -24,13 +24,6 @@ export class HomeComponent implements OnInit {
   fadeIn: any;
   rubberBand: any;
   show : boolean = false;
-  func: void = (() => {
-    (async () => {
-        // Do something before delay
-        await this.delay(10000);
-        this.show = true
-    })();
-  })();
 
   ngOnInit(){
     this.router.events.subscribe((evt) => {

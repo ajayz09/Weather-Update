@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { MapContentComponent } from './map-content/map-content.component';
+import { HomeComponent } from '././pages/home/home.component';
+import { MapContentComponent } from '././pages/map-content/map-content.component';
 import { HttpClientModule } from '@angular/common/http'
 import { AgmCoreModule } from '@agm/core';
-import { WeatherForecastService} from './weather-forecast.service';
+import { WeatherForecastService} from '././services/weather-forecast.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { WeatherForecastService} from './weather-forecast.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAJ2YMMXw8e1u1_fiRZS0E1KKJQRklVWUc'
+      apiKey: 'your api key'
     })
   ],
   providers: [WeatherForecastService],

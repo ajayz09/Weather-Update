@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
 import { } from 'googlemaps';
-import { WeatherForecastService } from '../weather-forecast.service';
+import { WeatherForecastService } from '../../services/weather-forecast.service';
 
 
 @Component({
@@ -21,6 +21,7 @@ export class MapContentComponent implements OnInit {
   map: google.maps.Map;
 
   func: void = (() => {
+    this.getLocation();
     (async () => {
         // Do something before delay
         await this.delay(1000);
@@ -47,7 +48,7 @@ export class MapContentComponent implements OnInit {
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
-  
+
 
   getTemp(passedTemp){
     passedTemp = parseInt(passedTemp)
